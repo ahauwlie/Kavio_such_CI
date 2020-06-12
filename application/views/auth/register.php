@@ -1,4 +1,4 @@
-<form action="<?php echo site_url('register/submit'); ?>" method="post">
+<form action="<?php echo site_url('register/submit'); ?>" method="post" enctype="multipart/form-data">
 	<div class="form-group">
 		<label class="control-label"></label>   
 		<input type="text" id="nama" name="nama_adm" placeholder="Nama Lengkap yaa..." required="">  
@@ -19,6 +19,10 @@
 		<input type="password" id="password" name="password" placeholder="Password'nya..." required="">  
 		<span class="text-danger"><?php echo form_error('password'); ?></span>  
 	</div>  
+	<div class="form-group">  
+		<label class="control-label"></label>  
+		<input type="file" name="image" value="upload" required="">
+	</div> 
 	<br><h3>boleh kosong kok sosmednya</h3>
 	<div class="form-group">
 		<label class="control-label"></label>   
