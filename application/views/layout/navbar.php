@@ -10,6 +10,7 @@
 						<a href="<?php echo site_url('Home'); ?>">Home</a>
 					</li>
 					<li><a href="<?php echo site_url('Home/contact_us'); ?>">Contact Us</a></li>
+					<li><a href="<?php echo site_url('Login'); ?>">Login</a></li>
 					<li><a href="#search" class="mt_search"><i class="fa fa-search"></i></a></li>
 				</ul>
 			</div>
