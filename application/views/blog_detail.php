@@ -45,7 +45,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="container">
 				<div class="blog-detail-main">
 					<div class="post_body">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+						<p>
+							<?php
+				              foreach ($lol as $row) {
+				                  echo "<tr>";
+				                  echo "<td>".$row['ayat_ar']."</td>";
+				                  echo "</tr>";
+				              }
+				            ?>
+						</p>
 						<blockquote>
 							<p>Sed felis est, placerat a ornare vel, tempor id est. Phasellus ac urna vitae massa porttitor lacinia. Integer mollis, nulla pretium porttitor sagittis, urna nibh lobortis eros, ut lacinia elit velit nec diam.</p>
 							<span>Arthur & Molly Weasley</span>
