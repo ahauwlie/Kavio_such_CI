@@ -28,15 +28,14 @@ class Register extends CI_Controller {
 
     $this->load->helper(array('form', 'url'));
 
-	$data_image=$this->upload->data();
-	$location=base_url().'inti/images/upload/';
-	$pict=$location.$data_image['file_name'];
+	$data_image = $this->upload->data();
+	$location = base_url().'inti/images/upload/thumb/';
+	$pict = $location.$data_image['file_name'];
 
     $username1 = $this->input->post('username');
     $password = $this->input->post('password');
     $pass = md5($password);
     $nama = $this->input->post('nama_adm');
-    // $foto = $this->input->post('foto_adm');
     $moto = $this->input->post('moto_adm');
     $wa = $this->input->post('whatsapp');
     $ig = $this->input->post('instagram');
@@ -65,7 +64,7 @@ class Register extends CI_Controller {
     {
       $this->user_model->add_account($data);
       echo "Selamat, Kamu bagian dari kami sekarang <br> lakukan activasi akun <a href='https://wa.me/089514055817?text=activasi%20akun%20*%20$nama%20*%20dengan%20email%20*%20$username1%20*'>disini!</a>";
-      echo "<br>foto berhasil di upload.<br>Lokasi <p><i><sup>$pict</sup></i></p>";
+      echo "<br>foto berhasil di upload.<br>Lokasi <i><sup>$pict</sup></i>";
       echo "<br><br><a href='".site_url("home")."'>Kembali ke Beranda</a>";
     }
   }
@@ -79,12 +78,13 @@ class Register extends CI_Controller {
           'new_image' => $target_path,
           // 'maintain_ratio' => TRUE,
           'create_thumb' => TRUE,
-          'thumb_marker' => '_thumb',
+          'thumb_marker' => '',
           'width' => 'auto',
           'height' => 120
       );
 
       $this->load->library('image_lib', $config_manip);
+      
 
       if (!$this->image_lib->resize()) {
         echo $this->image_lib->display_errors();
