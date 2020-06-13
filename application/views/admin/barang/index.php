@@ -11,6 +11,13 @@
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <style type="text/css">
+    td {
+      max-width: 100px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  </style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -36,7 +43,7 @@
         <!-- /.box-header -->
         <div class="box-body">
           <a href="<?php echo site_url('Artikel_admin/addArtikel') ?>" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Tambah Artikel</a>
-          <table id="productTable" class="table table-bordered table-hover">
+          <table id="productTable" class="table-bordered table-hover" style="table-layout: auto; width: 100%; ">
             <thead>
             <tr>
               <th>Id</th>

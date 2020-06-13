@@ -11,6 +11,13 @@
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <style type="text/css">
+    td {
+      max-width: 100px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  </style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -36,7 +43,7 @@
         <!-- /.box-header -->
         <div class="box-body">
           <a href="<?php echo site_url('User_manage_admin/addUser') ?>" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Tambah User</a>
-          <table id="productTable" class="table table-bordered table-hover">
+          <table id="productTable" class="table-bordered table-hover" style="table-layout: auto; width: 100%; ">
             <thead>
             <tr>
               <th>Id</th>
@@ -45,11 +52,12 @@
               <th>Nama Lengkap</th>
               <th>Foto</th>
               <th>Moto Diri</th>
-              <th>Whatsapp</th>
-              <th>Instagram</th>
-              <th>Facebook</th>
+              <th>WA</th>
+              <th>IG</th>
+              <th>FB</th>
               <th>Twitter</th>
-              <th>Status Aktifasi</th>
+              <th>Aktifasi</th>
+              <th>Aksi</th>
             </tr>
             </thead>
             <tbody>
@@ -84,11 +92,12 @@
               <th>Nama Lengkap</th>
               <th>Foto</th>
               <th>Moto Diri</th>
-              <th>Whatsapp</th>
-              <th>Instagram</th>
-              <th>Facebook</th>
+              <th>WA</th>
+              <th>IG</th>
+              <th>FB</th>
               <th>Twitter</th>
-              <th>Status Aktifasi</th>
+              <th>Aktifasi</th>
+              <th>Aksi</th>
             </tr>
             </tfoot>
           </table>

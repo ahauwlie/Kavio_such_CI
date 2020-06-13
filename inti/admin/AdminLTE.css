@@ -1784,6 +1784,8 @@ a:focus {
 }
 .box-body > .table {
   margin-bottom: 0;
+  table-layout: auto;
+  width: 100%;
 }
 .box-body .fc {
   margin-top: 5px;
