@@ -60,7 +60,7 @@ class Artikel_admin extends CI_Controller
                     );
 
                     $this->model_artikel->insert(html_escape($data), false);
-                    redirect(site_url("Barang_admin/index"));
+                    redirect(site_url("Artikel_admin/index"));
                 }
                 else
                 {
@@ -89,7 +89,7 @@ class Artikel_admin extends CI_Controller
                 if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     $this->model_artikel->delete($id);
                 }
-                redirect(site_url('Barang_admin/index'));
+                redirect(site_url('Artikel_admin/index'));
             }
         }
     }
@@ -120,7 +120,7 @@ class Artikel_admin extends CI_Controller
                     );
 
                     $this->model_artikel->update(html_escape($data), $id, false);
-                    redirect(site_url("Barang_admin/index"));
+                    redirect(site_url("Artikel_admin/index"));
                 }
                 else
                 {

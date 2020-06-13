@@ -7,7 +7,7 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <?php echo $css; ?>
-  <link href="<?php echo base_url('assets/css/admin/sweetalert.css'); ?>" rel="stylesheet">
+  <link href="<?php echo base_url('inti/admin/sweetalert.css'); ?>" rel="stylesheet">
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -36,10 +36,18 @@
             <div class="row">
               <div class="col-lg-6">
                 <div class="form-group">
-                    <label>Nama Barang</label>
-                    <input name="nama" id="nama" type="text" maxlength="19" class="form-control" value="<?php echo $product['nama_pr']; ?>" required>
+                    <label>Judul Artikel</label>
+                    <input name="judul" id="judul" type="text" maxlength="100" class="form-control" value="<?php echo $artikel['judul_ar']; ?>" required>
                 </div>
                 <div class="form-group">
+                    <label>Isi Artikel</label>
+                    <input name="isi" id="isi" type="text" class="form-control" value="<?php echo $artikel['isi_ar']; ?>" required>
+                </div>
+                <div class="form-group">
+                    <label>Ayat Artikel</label>
+                    <input name="ayat" id="ayat" type="text" class="form-control" value="<?php echo $artikel['ayat_ar']; ?>" required>
+                </div>
+                <!-- <div class="form-group">
                     <label>Tipe Barang</label>
                     <select name="tipe" id="tipe" class="form-control select-search m-t-4" required>
                       <option value="" disabled>Pilih kategori...</option>
@@ -50,46 +58,34 @@
                       <option value="Alat_seduh">Alat_seduh</option>
                       <option value="Mesin_Kopi">Mesin_Kopi</option>
                     </select>
-                </div>
+                </div> -->
                 <div class="form-group">
-                    <label>Harga (Rp)</label>
-                    <input name="harga" id="harga" type="number" max="9" class="form-control" value="<?php echo $product['harga_pr']; ?>" required>
-                </div>
-                <div class="form-group">
-                    <label>Stock Barang</label>
-                    <input name="stock" id="stock" type="number" max="3" class="form-control" value="<?php echo $product['stock_pr']; ?>" required>
+                    <label>Tanggal</label>
+                    <input name="tanggal" id="tanggal" type="date" class="form-control" value="<?php echo $artikel['tanggal_ar']; ?>" required>
                 </div>
               </div>
               <div class="col-lg-6">
                 <div class="form-group">
-                  <label>Tag Barang</label>
-                  <select name="tag" id="tag" class="form-control select-search m-t-4" required>
-                    <option value="" disabled>Pilih kategori...</option>
-                    <option value="kopi_indo">kopi_indo</option>
-                    <option value="sruput_coffee">sruput_coffee</option>
-                    <option value="kopi_luar_kiloan">kopi_luar_kiloan</option>
-                    <option value="kopikelas">kopikelas</option>
-                    <option value="biji_kopi_berkualitas">biji_kopi_berkualitas</option>
-                    <option value="filterdulubosq">filterdulubosq</option>
-                    <option value="bikin_kopi">bikin_kopi</option>
-                    <option value="kopi_kiloan_indo">kopi_kiloan_indo</option>
-                    <option value="mesin_kopi">mesin_kopi</option>
-                    <option value="manakuatt!!">manakuatt!!</option>
-                  </select>
+                    <label>Kategori</label>
+                    <input name="kat" id="kat" class="form-control" value="<?php echo $artikel['id_kat']; ?>" required>
                 </div>
-                <div class="form-group p-t-4">
-                    <label>Deskripsi Barang</label>
-                    <input name="decs" id="decs" type="text" maxlength="255" class="form-control" value="<?php echo $product['decs_pr']; ?>" required>
+                <div class="form-group">
+                    <label>Tag</label>
+                    <input name="tag" id="tag" class="form-control" value="<?php echo $artikel['id_tag']; ?>" required>
                 </div>
-                <div class="form-group p-t-4">
-                    <label>Photo Barang</label>
-                    <input name="img" id="img" type="text" maxlength="255" class="form-control" value="<?php echo $product['img_pr']; ?>" required>
+                <div class="form-group">
+                    <label>Foto Link</label>
+                    <input name="foto" id="foto" class="form-control" maxlength="255" value="<?php echo $artikel['foto_ar']; ?>" required>
+                </div>
+                <div class="form-group">
+                    <label>Admin</label>
+                    <input name="admin" id="admin" class="form-control" value="<?php echo $artikel['id_adm']; ?>" required>
                 </div>
               </div>
               <div class="col-lg-6">
                 <div class="form-group">
                     <button class="btn btn-info">Edit</button>
-                    <a href="<?php echo site_url('Barang_admin/index'); ?>" class="btn btn-danger">Batal</a>
+                    <a href="<?php echo site_url('Artikel_admin/index'); ?>" class="btn btn-danger">Batal</a>
                 </div>
               </div>
             </div>
@@ -108,13 +104,12 @@
 
 <?php echo $js; ?>
 
-<script>
+<!-- <script>
   $(function () {
-    $('#tipe').val('<?php echo $product['tipe_pr']; ?>').trigger('change');
-    $('#tag').val('<?php echo $product['tag_pr']; ?>').trigger('change');
-    // $('.select-search').select2();
+    $('#tipe').val('<?php echo $artikel['tipe_pr']; ?>').trigger('change');
+    $('#tag').val('<?php echo $artikel['tag_pr']; ?>').trigger('change');
   })
-</script>
-<script src="<?php echo base_url('/assets/js/admin/barang/bootstrap_select.min.js'); ?>"></script>
+</script> -->
+<script src="<?php echo base_url('/inti/admin/js/barang/bootstrap_select.min.js'); ?>"></script>
 </body>
 </html>

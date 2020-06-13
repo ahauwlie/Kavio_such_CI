@@ -73,8 +73,8 @@
               </div>
               <div class="col-lg-6">
                 <div class="form-group">
-                    <a href="<?php echo site_url('Barang_admin/edit/').$artikel['id_ar']; ?>" class="btn btn-info">Edit</a>
-                    <a href="<?php echo site_url('Barang_admin/index'); ?>" class="btn btn-danger">Batal</a>
+                    <a href="<?php echo site_url('Artikel_admin/edit/').$artikel['id_ar']; ?>" class="btn btn-info">Edit</a>
+                    <a href="<?php echo site_url('Artikel_admin/index'); ?>" class="btn btn-danger">Batal</a>
                 </div>
               </div>
             </div>
@@ -92,6 +92,6 @@
 <!-- ./wrapper -->
 
 <?php echo $js; ?>
-<script src="<?php echo base_url('/assets/js/admin/barang/bootstrap_select.min.js'); ?>"></script>
+<script src="<?php echo base_url('/inti/admin/js/barang/bootstrap_select.min.js'); ?>"></script>
 </body>
 </html>

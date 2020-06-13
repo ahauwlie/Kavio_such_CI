@@ -154,7 +154,7 @@
                     closeOnConfirm: true
                 },
                 function(){
-                    $('#delete-form').attr('action', '<?php echo site_url('Barang_admin/delete/'); ?>' + id).submit();
+                    $('#delete-form').attr('action', '<?php echo site_url('Artikel_admin/delete/'); ?>' + id).submit();
                 });
         });
     })
