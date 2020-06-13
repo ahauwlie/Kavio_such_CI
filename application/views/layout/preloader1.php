@@ -97,7 +97,7 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="<?php echo site_url('Artikel_admin'); ?>"><i class="fa fa-circle-o"></i> Daftar Artikel</a></li>
-          <li><a href="<?php echo site_url('Barang_import_admin'); ?>"><i class="fa fa-circle-o"></i> Unggah Banyak Data Artikel *excel*</a></li>
+          <li><a href="<?php echo site_url('Artikel_import_admin'); ?>"><i class="fa fa-circle-o"></i> Unggah Banyak Artikel</a></li>
         </ul>
       </li>
       <li><a href="<?php echo site_url('User_manage_admin'); ?>"><i class="fa fa-user-circle-o"></i> <span> Kelola Admin</span></a></li>

@@ -19,11 +19,11 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>Tambah Barang Baru</h1>
+      <h1>Tambah Artikel Baru</h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Tables</a></li>
-        <li class="active">Tambah Barang Baru</li>
+        <li class="active">Tambah Artikel Baru</li>
       </ol>
     </section>
 

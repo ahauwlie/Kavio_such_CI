@@ -21,7 +21,7 @@
     <section class="content-header">
       <h1>
         Data Tables
-        <small>- Daftar Barang</small>
+        <small>- Daftar Artikel</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -35,7 +35,7 @@
       <div class="box">
         <!-- /.box-header -->
         <div class="box-body">
-          <a href="<?php echo site_url('Artikel_admin/addArtikel') ?>" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Tambah barang</a>
+          <a href="<?php echo site_url('Artikel_admin/addArtikel') ?>" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Tambah Artikel</a>
           <table id="productTable" class="table table-bordered table-hover">
             <thead>
             <tr>

@@ -7,7 +7,7 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <?php echo $css; ?>
-  <link href="<?php echo base_url('assets/css/admin/sweetalert.css'); ?>" rel="stylesheet">
+  <link href="<?php echo base_url('inti/admin/sweetalert.css'); ?>" rel="stylesheet">
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -21,7 +21,7 @@
     <section class="content-header">
       <h1>
         Data Tables
-        <small>- Daftar Barang</small>
+        <small>- Daftar Artikel</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -35,18 +35,19 @@
       <div class="box">
         <!-- /.box-header -->
         <div class="box-body">
-          <a href="<?php echo site_url("Barang_import_admin/form") ?>"class="btn btn-primary"><i class="fa fa-plus-circle"></i> Import barang</a>
+          <a href="<?php echo site_url("Artikel_import_admin/form") ?>"class="btn btn-primary"><i class="fa fa-plus-circle"></i> Import Artikel</a>
           <table id="example2" class="table table-bordered table-hover">
             <thead>
             <tr>
               <th>Id</th>
-              <th>Nama</th>
-              <th>Tipe</th>
-              <th>Harga</th>
-              <th>Stock</th>
+              <th>Tanggal</th>
+              <th>Kategori</th>
+              <th>Judul</th>
+              <th>Isi</th>
+              <th>Ayat</th>
               <th>Tag</th>
-              <th>Deskripsi</th>
-              <th>Gambar</th>
+              <th>Foto</th>
+              <th>Admin</th>
             </tr>
             </thead>
             <tbody>
@@ -54,14 +55,15 @@
                 if( ! empty($import)){
                   foreach($import as $data){
                     echo "<tr>";
-                    echo "<td>".$data->id_pr."</td>";
-                    echo "<td>".$data->nama_pr."</td>";
-                    echo "<td>".$data->tipe_pr."</td>";
-                    echo "<td class='text-right'>".number_format($data->harga_pr,0)."</td>";
-                    echo "<td>".$data->stock_pr."</td>";
-                    echo "<td>".$data->tag_pr."</td>";
-                    echo "<td>".$data->decs_pr."</td>";
-                    echo "<td>".$data->img_pr."</td>";
+                    echo "<td>".$data->id_ar."</td>";
+                    echo "<td>".$data->tanggal_ar."</td>";
+                    echo "<td>".$data->id_kat."</td>";
+                    echo "<td>".$data->judul_ar."</td>";
+                    echo "<td>".$data->isi_ar."</td>";
+                    echo "<td>".$data->ayat_ar."</td>";
+                    echo "<td>".$data->id_tag."</td>";
+                    echo "<td>".$data->foto_ar."</td>";
+                    echo "<td>".$data->id_adm."</td>";
                     echo "</tr>";
                   }
                 }else{
@@ -72,13 +74,14 @@
             <tfoot>
             <tr>
               <th>Id</th>
-              <th>Nama</th>
-              <th>Tipe</th>
-              <th>Harga</th>
-              <th>Stock</th>
+              <th>Tanggal</th>
+              <th>Kategori</th>
+              <th>Judul</th>
+              <th>Isi</th>
+              <th>Ayat</th>
               <th>Tag</th>
-              <th>Deskripsi</th>
-              <th>Gambar</th>
+              <th>Foto</th>
+              <th>Admin</th>
             </tr>
             </tfoot>
           </table>
