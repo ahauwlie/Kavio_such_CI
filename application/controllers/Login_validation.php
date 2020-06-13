@@ -8,45 +8,56 @@ class Login_validation extends CI_Controller {
 
         $this->load->helper('url'); // digunakan untuk fungsi redirect di bawah
 
-        $this->form_validation->set_rules('username', 'username', 'required');
-        $this->form_validation->set_rules('password', 'password', 'required');
-        $this->form_validation->set_message('required', '<div class="alert alert-danger" style="margin-top: 3px">
-                <div class="header"><b><i class="fa fa-exclamation-circle"></i> {field}</b> harus diisi</div></div>');
+        $this->form_validation->set_rules('username', 'username', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('password', 'password', 'trim|required|xss_clean|callback_check_database');// disini terdapat callback : callback_check_database. digunakan untuk memanggil function check_database() dibawah.
 
-        if($this->form_validation->run() == FALSE)
+        //jika validasi gagal maka akan langsung akan dkembalikan ke login
+        if($this->form_validation->run() == TRUE)
         {
+            redirect('login','refresh');
+        }
+        if($this->form_validation->run() == FALSE){
             redirect('login?gagal=1','refresh');
-        }else
+
+        }
+    }
+
+    function check_database()
+    {
+        $this->load->library('session');
+        //validasi kedua dengan cara mengecek database
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
+
+        //query ke database dan memanggil model m_login
+        $this->load->model('m_login');
+        $result = $this->m_login->login($username,$password);
+
+        //jika hasilnya ada pada maka masukan ke season field nama dan username dengan nama season : login
+        if($result)
         {
-            $this->load->library('session');
-            $username = $this->input->post("username");
-            $password = $this->input->post("password");
+            foreach($result as $row)
+            {
+                $sess_array = array(
+                    'id_adm'   => $row->id_adm,
+                    'username' => $row->username,
+                    'nama_adm' => $row->nama_adm,
+                    'foto_adm' => $row->foto_adm,
+                    'moto_adm' => $row->moto_adm,
+                    'whatsapp' => $row->whatsapp,
+                    'instagram' => $row->instagram,
+                    'facebook' => $row->facebook,
+                    'twitter' => $row->twitter,
+                    'active' => $row->active
+                );
 
-            $this->load->model('m_login');
-            $result = $this->m_login->login($username,$password);
-
-            if ($result) {
-                foreach ($result as $apps) {
-                    $session_data = array(
-                        'id_adm'   => $apps->id_adm,
-                        'username' => $apps->username,
-                        'nama_adm' => $apps->nama_adm,
-                        'foto_adm' => $apps->foto_adm,
-                        'moto_adm' => $apps->moto_adm,
-                        'whatsapp' => $apps->whatsapp,
-                        'instagram' => $apps->instagram,
-                        'facebook' => $apps->facebook,
-                        'twitter' => $apps->twitter,
-                        'active' => $apps->active
-                    );
-                    $this->session->set_userdata('login', $session_data);
-                    redirect('home','refresh');
-                }
-                return TRUE;
+                $this->session->set_userdata('login', $sess_array);
             }
-            else{
-                return FALSE;
-            }
+            return TRUE;
+        }
+        else
+        {
+            return FALSE;
         }
     }
 }

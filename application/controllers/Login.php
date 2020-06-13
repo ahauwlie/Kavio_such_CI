@@ -14,14 +14,16 @@ class Login extends CI_Controller {
             }else{
                 if($this->session->userdata('login')) {
                     $session = $this->session->userdata('login');
-                    $id_ug = $session['username'];
+                    $id_ug = $session['active'];
                     $id = $session['foto_adm'];
                     if($id_ug == 1){
-                        redirect('Home_admin','refresh');
+                        redirect('home_admin','refresh');
+                        // echo "$id";
                     }
                     else{
-                        // redirect('Login/logout','refresh');
-                        echo "$id <br> $id_ug";
+                        $this->session->unset_userdata('login');
+                        echo "maaf id anda belum di aktifasi";
+                        echo "<br><br><a href='".site_url("home")."'>Kembali ke Beranda</a>";
                     }
                 }
                 // echo "string";
