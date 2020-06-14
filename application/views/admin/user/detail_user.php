@@ -7,7 +7,7 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <?php echo $css; ?>
-  <link href="<?php echo base_url('assets/css/admin/sweetalert.css'); ?>" rel="stylesheet">
+  <link href="<?php echo base_url('inti/admin/sweetalert.css'); ?>" rel="stylesheet">
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -19,11 +19,11 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>Detail User</h1>
+      <h1>Detail Admin</h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Tables</a></li>
-        <li class="active">Detail User</li>
+        <li class="active">Detail Admin</li>
       </ol>
     </section>
 
@@ -36,51 +36,52 @@
             <div class="row">
               <div class="col-lg-6">
                 <div class="form-group">
-                    <label>User Group</label>
-                    <p class="form-control-static"><?php echo $user['id_ug']; ?></p>
-                </div>
-                <div class="form-group">
-                    <label>Username</label>
-                    <p class="form-control-static"><?php echo $user['username_us']; ?></p>
+                    <label>Email</label>
+                    <p class="form-control-static"><?php echo $user['username']; ?></p>
                 </div>
                 <div class="form-group">
                     <label>Password</label>
-                    <p class="form-control-static"><?php echo $user['password_us']; ?></p>
+                    <p class="form-control-static"><?php echo $user['password']; ?></p>
                 </div>
                 <div class="form-group">
                     <label>Nama Lengkap</label>
-                    <p class="form-control-static"><?php echo $user['full_name_us']; ?></p>
+                    <p class="form-control-static"><?php echo $user['nama_adm']; ?></p>
                 </div>
                 <div class="form-group">
-                    <label>Email</label>
-                    <p class="form-control-static"><?php echo $user['email_us']; ?></p>
+                    <label>Foto Admin</label>
+                    <p class="form-control-static"><?php echo $user['foto_adm']; ?></p>
+                    <img src="<?php echo $user['foto_adm']; ?>">
+                </div>
+                <div class="form-group">
+                    <label>Moto Admin</label>
+                    <p class="form-control-static"><?php echo $user['moto_adm']; ?></p>
                 </div>
               </div>
               <div class="col-lg-6">
                 <div class="form-group">
-                    <label>Nomor HP</label>
-                    <p class="form-control-static"><?php echo $user['phone_num_us']; ?></p>
+                    <label>Whatsapp</label>
+                    <p class="form-control-static"><?php echo $user['whatsapp']; ?></p>
                 </div>
                 <div class="form-group">
-                    <label>Foto</label>
-                    <p class="form-control-static"><?php echo $user['img_us']; ?></p>
+                    <label>Instagram</label>
+                    <p class="form-control-static"><?php echo $user['instagram']; ?></p>
                 </div>
                 <div class="form-group">
-                    <label>Tanggal Lahir</label>
-                    <p class="form-control-static"><?php echo $user['date_birth_us']; ?></p>
+                    <label>Facebook</label>
+                    <p class="form-control-static"><?php echo $user['facebook']; ?></p>
                 </div>
                 <div class="form-group">
-                    <label>Alamat</label>
-                    <p class="form-control-static"><?php echo $user['address_us']; ?></p>
+                    <label>Twitter</label>
+                    <p class="form-control-static"><?php echo $user['twitter']; ?></p>
                 </div>
                 <div class="form-group">
-                    <label>Aktiv</label>
+                    <label>Status Aktifasi</label>
                     <p class="form-control-static"><?php echo $user['active']; ?></p>
                 </div>
               </div>
             </div>
             <div class="form-group">
-              <a href="<?php echo site_url('User_manage_admin/edit/').$user['id_us']; ?>" class="btn btn-info">Edit</a>
+              <a href="<?php echo site_url('User_manage_admin/edit/').$user['id_adm']; ?>" class="btn btn-info">Edit</a>
               <a href="<?php echo site_url('User_manage_admin/index'); ?>" class="btn btn-danger">Batal</a>
             </div>
           </form>
@@ -97,6 +98,6 @@
 <!-- ./wrapper -->
 
 <?php echo $js; ?>
-<script src="<?php echo base_url('/assets/js/admin/barang/bootstrap_select.min.js'); ?>"></script>
+<script src="<?php echo base_url('/inti/admin/js/barang/bootstrap_select.min.js'); ?>"></script>
 </body>
 </html>

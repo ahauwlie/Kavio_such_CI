@@ -43,29 +43,52 @@ class User_manage_admin extends CI_Controller {
           {
               $password = $this->input->post('pass');
               $pass = md5($password);
-              $data = Array (
-                // 'id_ug' => $this->input->post('idug'),
-                // 'username_us' => $this->input->post('uname'),
-                // 'password_us' => getHashedPassword($pass),
-                // 'full_name_us' => $this->input->post('fnama'),
-                // 'email_us' => $this->input->post('email'),
-                // 'phone_num_us' => $this->input->post('hp'),
-                // 'img_us' => $this->input->post('foto'),
-                // 'date_birth_us' => $this->input->post('ultah'),
-                // 'address_us' => $this->input->post('alamat'),
-                // 'active' => $this->input->post('active')
 
-                'username' => $this->input->post('uname'),
-                'password' => getHashedPassword($pass),
-                'nama_adm' => $this->input->post('fnama'),
-                'foto_adm' => $this->input->post('foto'),
-                'moto_adm' => $this->input->post('moto'),
-                'whatsapp' => $this->input->post('wa'),
-                'instagram' => $this->input->post('ig'),
-                'facebook' => $this->input->post('fb'),
-                'twitter' => $this->input->post('tw'),
-                'active' => $this->input->post('active')
-              );
+              // buat foto nih
+              $config['upload_path']   = './inti/images/upload/'; 
+              $config['allowed_types'] = 'gif|jpg|png|jpeg'; 
+              $config['max_size']      = 10240;
+              $this->load->library('upload', $config);
+
+              if ($this->upload->do_upload('image')) {
+                $uploadedImage = $this->upload->data();
+                $this->resizeImage($uploadedImage['file_name']); 
+              }
+
+              $this->load->helper(array('form', 'url'));
+              $data_image = $this->upload->data();
+              $location = base_url().'inti/images/upload/thumb/';
+              $pict = $location.$data_image['file_name'];
+
+              if( ! $this->input->post('foto')){
+                $data = Array (
+                  'username' => $this->input->post('uname'),
+                  'password' => getHashedPassword($pass),
+                  'nama_adm' => $this->input->post('fnama'),
+                  'foto_adm' => $pict,
+                  'moto_adm' => $this->input->post('moto'),
+                  'whatsapp' => $this->input->post('wa'),
+                  'instagram' => $this->input->post('ig'),
+                  'facebook' => $this->input->post('fb'),
+                  'twitter' => $this->input->post('tw'),
+                  'active' => $this->input->post('active')
+                );
+              }else{
+                $data = Array (
+                  'username' => $this->input->post('uname'),
+                  'password' => getHashedPassword($pass),
+                  'nama_adm' => $this->input->post('fnama'),
+                  'foto_adm' => $this->input->post('foto'),
+                  'moto_adm' => $this->input->post('moto'),
+                  'whatsapp' => $this->input->post('wa'),
+                  'instagram' => $this->input->post('ig'),
+                  'facebook' => $this->input->post('fb'),
+                  'twitter' => $this->input->post('tw'),
+                  'active' => $this->input->post('active')
+                );
+              }
+
+              
 
               $this->user_manage->insert(html_escape($data), false);
               redirect(site_url("User_manage_admin/index"));
@@ -81,6 +104,29 @@ class User_manage_admin extends CI_Controller {
           }
         }
       }
+    }
+
+    public function resizeImage($filename){
+      $source_path = $_SERVER['DOCUMENT_ROOT'] . './inti/images/upload/' . $filename;
+      $target_path = $_SERVER['DOCUMENT_ROOT'] . './inti/images/upload/thumb/';
+        $config_manip = array(
+            'image_library' => 'gd2',
+            'source_image' => $source_path,
+            'new_image' => $target_path,
+            'create_thumb' => TRUE,
+            'thumb_marker' => '',
+            'width' => 'auto',
+            'height' => 120
+        );
+
+        $this->load->library('image_lib', $config_manip);
+        
+
+        if (!$this->image_lib->resize()) {
+          echo $this->image_lib->display_errors();
+        }
+
+        $this->image_lib->clear();
     }
 
     public function delete($id)
@@ -117,19 +163,52 @@ class User_manage_admin extends CI_Controller {
           {
               $password = $this->input->post('pass');
               $pass = md5($password);
-              $data = Array (
-                'id_adm' => $id,
-                'username' => $this->input->post('uname'),
-                'password' => getHashedPassword($pass),
-                'nama_adm' => $this->input->post('fnama'),
-                'foto_adm' => $this->input->post('foto'),
-                'moto_adm' => $this->input->post('moto'),
-                'whatsapp' => $this->input->post('wa'),
-                'instagram' => $this->input->post('ig'),
-                'facebook' => $this->input->post('fb'),
-                'twitter' => $this->input->post('tw'),
-                'active' => $this->input->post('active')
-              );
+              
+              // buat foto nih
+              $config['upload_path']   = './inti/images/upload/'; 
+              $config['allowed_types'] = 'gif|jpg|png|jpeg'; 
+              $config['max_size']      = 10240;
+              $this->load->library('upload', $config);
+
+              if ($this->upload->do_upload('image')) {
+                $uploadedImage = $this->upload->data();
+                $this->resizeImage($uploadedImage['file_name']); 
+              }
+
+              $this->load->helper(array('form', 'url'));
+              $data_image = $this->upload->data();
+              $location = base_url().'inti/images/upload/thumb/';
+              $pict = $location.$data_image['file_name'];
+
+              if( ! $this->input->post('foto')){
+                $data = Array (
+                  'id_adm' => $id,
+                  'username' => $this->input->post('uname'),
+                  'password' => getHashedPassword($pass),
+                  'nama_adm' => $this->input->post('fnama'),
+                  'foto_adm' => $pict,
+                  'moto_adm' => $this->input->post('moto'),
+                  'whatsapp' => $this->input->post('wa'),
+                  'instagram' => $this->input->post('ig'),
+                  'facebook' => $this->input->post('fb'),
+                  'twitter' => $this->input->post('tw'),
+                  'active' => $this->input->post('active')
+                );
+              }else{
+                $data = Array (
+                  'id_adm' => $id,
+                  'username' => $this->input->post('uname'),
+                  'password' => getHashedPassword($pass),
+                  'nama_adm' => $this->input->post('fnama'),
+                  'foto_adm' => $this->input->post('foto'),
+                  'moto_adm' => $this->input->post('moto'),
+                  'whatsapp' => $this->input->post('wa'),
+                  'instagram' => $this->input->post('ig'),
+                  'facebook' => $this->input->post('fb'),
+                  'twitter' => $this->input->post('tw'),
+                  'active' => $this->input->post('active')
+                );
+              }
 
               $this->user_manage->update(html_escape($data), $id, false);
               redirect(site_url("User_manage_admin/index"));
@@ -162,7 +241,6 @@ class User_manage_admin extends CI_Controller {
           $data['js'] = $this->load->view('include/script1.php', NULL, TRUE);
           $data['footer'] = $this->load->view('layout/footer1.php', NULL, TRUE);
           $data['preloader'] = $this->load->view('layout/preloader1.php', NULL, TRUE);
-
           $data['user'] = $this->user_manage->getSpecified($id);
           $this->load->view('admin/user/detail_user', $data);
         }

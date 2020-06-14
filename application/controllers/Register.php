@@ -28,9 +28,9 @@ class Register extends CI_Controller {
 
     $this->load->helper(array('form', 'url'));
 
-	$data_image = $this->upload->data();
-	$location = base_url().'inti/images/upload/thumb/';
-	$pict = $location.$data_image['file_name'];
+  	$data_image = $this->upload->data();
+  	$location = base_url().'inti/images/upload/thumb/';
+  	$pict = $location.$data_image['file_name'];
 
     $username1 = $this->input->post('username');
     $password = $this->input->post('password');
@@ -60,7 +60,7 @@ class Register extends CI_Controller {
     if($this->user_model->isDuplicate($this->input->post('username'))){
             echo "Username telah digunakan";
         }
-        else
+    else
     {
       $this->user_model->add_account($data);
       echo "Selamat, Kamu bagian dari kami sekarang <br> lakukan activasi akun <a href='https://wa.me/089514055817?text=activasi%20akun%20*%20$nama%20*%20dengan%20email%20*%20$username1%20*'>disini!</a>";

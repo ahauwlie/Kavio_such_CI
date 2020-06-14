@@ -47,18 +47,6 @@
                     <label>Ayat</label>
                     <input name="ayat" id="ayat" type="text" class="form-control" required>
                 </div>
-                <!-- <div class="form-group">
-                    <label>Tipe Barang</label>
-                    <select name="tipe" id="tipe" class="form-control select-search m-t-4" required>
-                      <option value="" disabled>Pilih kategori...</option>
-                      <option value="Kopi">Kopi</option>
-                      <option value="Filter">Filter</option>
-                      <option value="Kopi_1kg">Kopi_1kg</option>
-                      <option value="Biji_kopi">Biji_kopi</option>
-                      <option value="Alat_seduh">Alat_seduh</option>
-                      <option value="Mesin_Kopi">Mesin_Kopi</option>
-                    </select>
-                </div> -->
                 <div class="form-group">
                     <label>Tanggal</label>
                     <input name="tanggal" id="tanggal" type="date" class="form-control" required>
@@ -75,7 +63,11 @@
                 </div>
                 <div class="form-group p-t-4">
                     <label>Foto Link</label>
-                    <input name="foto" id="foto" type="text" maxlength="255" class="form-control" required>
+                    <input name="foto" id="foto" type="text" maxlength="255" class="form-control">
+                    atau<br>
+                    <label>Upload Foto</label>
+                    <input name="image" type="file" class="form-control">
+                    *wajib isi salah 1'nya baik <span><i>Foto Link</i></span> maupun <span><i>Upload Foto</i></span>*
                 </div>
                 <div class="form-group p-t-4">
                     <label>Admin</label>

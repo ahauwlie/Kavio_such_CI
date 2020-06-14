@@ -28,12 +28,12 @@
     <section class="content-header">
       <h1>
         Data Tables
-        <small>- Kelola User</small>
+        <small>- Kelola Admin</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Tables</a></li>
-        <li class="active">Kelola User</li>
+        <li class="active">Kelola Admin</li>
       </ol>
     </section>
 
@@ -42,7 +42,7 @@
       <div class="box">
         <!-- /.box-header -->
         <div class="box-body">
-          <a href="<?php echo site_url('User_manage_admin/addUser') ?>" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Tambah User</a>
+          <a href="<?php echo site_url('User_manage_admin/addUser') ?>" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Tambah Admin</a>
           <table id="productTable" class="table-bordered table-hover" style="table-layout: auto; width: 100%; ">
             <thead>
             <tr>
