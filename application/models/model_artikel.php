@@ -41,7 +41,14 @@ class Model_artikel extends CI_Model {
 		public function dis_products1()
 		{
 			$this->db->distinct();
-			$query = $this->db->query('SELECT DISTINCT tag_ar FROM artikel');
+			$query = $this->db->query('SELECT DISTINCT id_kat FROM artikel');
+			return $query->result();
+		}
+
+		public function dis_products2()
+		{
+			$this->db->distinct();
+			$query = $this->db->query('SELECT DISTINCT id_tag FROM artikel');
 			return $query->result();
 		}
 
@@ -68,7 +75,7 @@ class Model_artikel extends CI_Model {
 	    }
 
     	public function side(){
-			$this->db->order_by('date_ar','desc');
+			$this->db->order_by('tanggal_ar','desc');
 			return $this->db->get('artikel');
     	}
 
