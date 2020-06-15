@@ -31,11 +31,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<li class="cat-yellow"><a href="#" class="white">Popular</a></li>
 							</ul>
 						</div>
-						<h1><a href="#">I'm passionate about food, the tradition of it, cooking it, sharing it</a></h1>
+						<h1><a href="#"><?php echo $lol['judul_ar']; ?></a></h1>
 						<div class="item-meta">
 							<span>by</span>
-							<a href="https://cyclonethemes.com/author/sean/">Sean Hamilton</a>, <a href="https://cyclonethemes.com/author/patricia/">Patricia Jenkins</a>, <a href="https://cyclonethemes.com/author/james/">James Bryant</a><br>
-							<time datetime="2018-02-15">2 years ago</time>
+							<a href="#"><?php echo $lol['id_adm']; ?></a><br>
+							<time datetime="YYYY-MM-DDThh:mm:ssTZD"><?php echo $lol['tanggal_ar']; ?></time>
 						</div>
 					</div>
 				</div>
@@ -46,13 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="blog-detail-main">
 					<div class="post_body">
 						<p>
-							<?php
-				              foreach ($lol as $row) {
-				                  echo "<tr>";
-				                  echo "<td>".$row['ayat_ar']."</td>";
-				                  echo "</tr>";
-				              }
-				            ?>
+							<?php echo $lol['ayat_ar']; ?>
 						</p>
 						<blockquote>
 							<p>Sed felis est, placerat a ornare vel, tempor id est. Phasellus ac urna vitae massa porttitor lacinia. Integer mollis, nulla pretium porttitor sagittis, urna nibh lobortis eros, ut lacinia elit velit nec diam.</p>

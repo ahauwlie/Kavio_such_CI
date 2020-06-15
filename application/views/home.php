@@ -35,7 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										<li class="cat-yellow"><a href="#" class="white">Popular</a></li>
 									</ul>
 								</div>
-								<h1><a href="#"><?=  $row->judul_ar  ?></a></h1>
+								<h1><a href="<?php echo site_url('Blog/'.$row->id_ar); ?>"><?=  $row->judul_ar  ?></a></h1>
 								<div class="item-meta">
 									<span>by</span>
 									<a href="author.html">Admin Jackson</a>
@@ -71,7 +71,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 													<p><a href="#"><?=  $row->tanggal_ar  ?></a></p>
 												</div>
 												<h2 class="entry-title">
-													<a href="<?php echo site_url('Blog'); ?>" class="white"><?=  $row->judul_ar  ?></a>
+													<a href="<?php echo site_url('Blog/index/'.$row->id_ar); ?>" class="white"><?=  $row->judul_ar  ?></a>
 												</h2>
 												<div class="item-meta white">
 													<span>by</span>

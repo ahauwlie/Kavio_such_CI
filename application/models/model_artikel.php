@@ -74,6 +74,19 @@ class Model_artikel extends CI_Model {
 	        return false;
 	    }
 
+	    public function atas($limit, $start) {
+	        $this->db->limit($limit, $start);
+	        $query = $this->db->query("SELECT * FROM artikel ORDER BY tanggal_ar DESC");
+
+	        if ($query->num_rows() > 0) {
+	            foreach ($query->result() as $row) {
+	                $data[] = $row;
+	            }
+	            return $data;
+	        }
+	        return false;
+	    }
+
     	public function side(){
 			$this->db->order_by('tanggal_ar','desc');
 			return $this->db->get('artikel');

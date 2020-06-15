@@ -2,7 +2,7 @@
 	<nav class="navbar navbar-default navbar-fixed-top navbar-sticky-function navbar-arrow">
 		<div class="container">
 			<div class="logo pull-left">
-				<h1><a href="index-2.html"><img src="<?php echo base_url('/inti/images/'); ?>" alt="logo yakk!"></a></h1>
+				<h1><a href="<?php echo site_url('home'); ?>"><img src="<?php echo base_url('/inti/images/'); ?>" alt="logo yakk!"></a></h1>
 			</div>
 			<div id="navbar" class="navbar-nav-wrapper text-center">
 				<ul class="nav navbar-nav navbar-right" id="responsive-menu">

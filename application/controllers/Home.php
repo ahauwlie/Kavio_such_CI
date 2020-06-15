@@ -37,7 +37,7 @@ class Home extends CI_Controller
         $data['starts2'] = $this->model_artikel->dis_products2();
         $data['ar_side'] = $this->model_artikel->side();
         $data['artikel'] =  $this->model_artikel->getAr($bawah, $page);
-        $data['artikelatas'] =  $this->model_artikel->getAr($atas, $page);
+        $data['artikelatas'] =  $this->model_artikel->atas($atas, $page);
 
         $this->load->view('home', $data);
     }
