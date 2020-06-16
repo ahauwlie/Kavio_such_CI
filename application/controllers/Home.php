@@ -20,8 +20,7 @@ class Home extends CI_Controller
         $config = array();
         $config["base_url"] = base_url() . "Home/index";
         $config["total_rows"] = $this->model_artikel->record_count();
-        $bawah = $config["per_page"] = 10;
-        $atas = $config["per_page"] = 3;
+        $config["per_page"] = 10;
         $config["uri_segment"] = 3;
         $this->pagination->initialize($config);
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
@@ -36,8 +35,8 @@ class Home extends CI_Controller
         $data['starts1'] = $this->model_artikel->dis_products1();
         $data['starts2'] = $this->model_artikel->dis_products2();
         $data['ar_side'] = $this->model_artikel->side();
-        $data['artikel'] =  $this->model_artikel->getAr($bawah, $page);
-        $data['artikelatas'] =  $this->model_artikel->atas($atas, $page);
+        $data['artikel'] =  $this->model_artikel->getAr($config["per_page"], $page);
+        $data['artikelatas'] =  $this->model_artikel->atas3();
 
         $this->load->view('home', $data);
     }

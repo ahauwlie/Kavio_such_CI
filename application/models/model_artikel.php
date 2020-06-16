@@ -57,6 +57,11 @@ class Model_artikel extends CI_Model {
 	     	return $query->result();
     	}
 
+    	public function atas3(){
+	        $query = $this->db->query("SELECT * FROM artikel ORDER BY tanggal_ar DESC LIMIT 3");
+	     	return $query->result();
+    	}
+
     	public function record_count() {
         	return $this->db->count_all('artikel');
     	}
@@ -74,18 +79,18 @@ class Model_artikel extends CI_Model {
 	        return false;
 	    }
 
-	    public function atas($limit, $start) {
-	        $this->db->limit($limit, $start);
-	        $query = $this->db->query("SELECT * FROM artikel ORDER BY tanggal_ar DESC");
+	    // public function atas($limit, $start) {
+	    //     $this->db->limit($limit, $start);
+	    //     $query = $this->db->query("SELECT * FROM artikel ORDER BY tanggal_ar DESC");
 
-	        if ($query->num_rows() > 0) {
-	            foreach ($query->result() as $row) {
-	                $data[] = $row;
-	            }
-	            return $data;
-	        }
-	        return false;
-	    }
+	    //     if ($query->num_rows() > 0) {
+	    //         foreach ($query->result() as $row) {
+	    //             $data[] = $row;
+	    //         }
+	    //         return $data;
+	    //     }
+	    //     return false;
+	    // }
 
     	public function side(){
 			$this->db->order_by('tanggal_ar','desc');

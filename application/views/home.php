@@ -83,11 +83,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<?php endforeach; ?>
 								<div class="pagination__wrapper">
 									<ul class="pagination">
-										<li><button class="prev" title="previous page">&#10094;</button></li>
-										<li><button title="first page - page 1">1</button></li>
-										<li><button class="active" title="current page">2</button></li>
-										<li><button>3</button></li>
-										<li><button class="next" title="next page">&#10095;</button></li>
+										<li><?php echo $links; ?></li>
 									</ul>
 								</div>
 							</div>
