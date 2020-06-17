@@ -48,7 +48,7 @@ class Blog extends CI_Controller
             $html .=  $in_parent == 0 ? "<ol class='comments-lists'>" : "<ol class='children'>";
             foreach ($result as $re) {
                 $html .= " <li class='comment'>
-                <div class='comment-body'><h4 class='text-left'>".$re['comment_email']."   ->   ".$re['comment_nama'].
+                <div class='comment-body'><h4 class='text-left'>".$re['comment_email']."   ->   ".$re['comment_name'].
                 "<small class='date-posted pull-right'>".date("F j, Y", $re['comment_created'])."</small></h4>
                 <p>".$re['comment_body']."</p>
                 <a  href='#comment_form' class='pull-left btn-blog' id='" . $re['id_com'] . "'>Reply </a><div class='clearfix'></div></div>";
