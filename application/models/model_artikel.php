@@ -38,6 +38,13 @@ class Model_artikel extends CI_Model {
 			return $query->row_array();
 	    }
 
+	    function get_one($id)
+	    {
+	        $this->db->get_where('artikel', array('id_ar' => $id));
+	        $query = $this->db->get('artikel');
+	        return $query->row();
+	    }
+
 		public function dis_products1()
 		{
 			$this->db->distinct();
