@@ -46,7 +46,7 @@ $(function () {
     /* 2. Countdown */
 
     $('.countdown').downCount({
-        date: '06/11/2020 09:00:00', // Change this time mm/dd/yyyy date
+        date: '06/26/2020 09:00:00', // Change this time mm/dd/yyyy date
         offset: +10
     }, function () {
         alert('WOOT WOOT, done!'); // Finish Message
